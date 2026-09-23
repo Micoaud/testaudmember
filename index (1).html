@@ -32,8 +32,8 @@
 
     <script>
         // 請替換成你自己的值
-        const LIFF_ID = "2011703761-8WXeFeSP";
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbzNrG5_5j7C_ZKsPsuGd5naglsG-iUTM_dpjH4nbUA8VbNF32kFa1rAE436Sb_rNa5C/exec";
+        const LIFF_ID = "2011709650-un848PEN";
+        const GAS_URL = "https://script.google.com/u/0/home/projects/149R6pyP5FbG4Qbl9z9rFUKnptLAy3SfKsYjPH5-eZABCwguBqT_rk_58/edit";
 
         function pad(n) { return n < 10 ? '0' + n : n; }
 
@@ -93,7 +93,7 @@
 
                     if (data.success) {
                         card.classList.add('valid');
-                        document.getElementById('member-name').innerText = data.name + "，您好！";
+                        document.getElementById('member-name').innerText = "會員編號 " + data.memberId + "　" + data.name + "，您好！";
                         document.getElementById('member-status').innerText = "✅ 狀態：有效會員（已繳費）";
                         startClock();
                     } else {
