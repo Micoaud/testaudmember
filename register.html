@@ -47,14 +47,18 @@
         async function initializeLiff() {
             try {
                 await liff.init({ liffId: LIFF_ID });
+
                 if (liff.isLoggedIn()) {
                     const profile = await liff.getProfile();
                     userUid = profile.userId;
+                    showStatus(""); // 清空，代表準備就緒
                 } else {
+                    showStatus("尚未登入，正在導向 LINE 登入頁面...");
                     liff.login();
                 }
             } catch (err) {
-                showStatus("LIFF 初始化失敗，請確認是否在 LINE App 內開啟此頁面。");
+                // 把實際錯誤內容顯示出來，方便判斷是 LIFF ID 錯還是開啟方式錯
+                showStatus("LIFF 初始化失敗：" + err.message + "（請確認是透過 liff.line.me 連結開啟，而不是原始網址）");
             }
         }
 
